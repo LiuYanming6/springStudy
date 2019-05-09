@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="a" abstract="true"></bean>
+    <bean id="addr" class="com.liuming.spring.autowire.Address"
+          p:city="BeiJing" p:street="沙河路"
+          parent="a">
+    </bean>
+    <bean id="address" class="com.liuming.spring.autowire.Address"
+          parent="addr"> <!-- 配置继承继承 -->
+    </bean>
+
+    <bean id="car" class="com.liuming.spring.autowire.Car"
+          p:brand="领克" p:price="16.9"></bean>
+
+    <bean id="p1" class="com.liuming.spring.autowire.Person"
+          p:name="Jack"
+          p:address-ref="address"
+          p:car-ref="car"
+          depends-on="car"> <!--必须有car,不然编译报错-->
+    </bean>
+
+
+    <!-- 实际项目很少使用, 因为笨方法更加清晰明了 -->
+    <bean id="p2" class="com.liuming.spring.autowire.Person"
+          p:name="Jack-autowire"
+          autowire="byName">
+    </bean>
+
+    <!-- 非单例-->
+    <bean id="cars" class="com.liuming.spring.autowire.Car" scope="prototype">
+        <property name="brand" value="领克01"></property>
+        <property name="price" value="16.6"></property>
+    </bean>
+</beans>
