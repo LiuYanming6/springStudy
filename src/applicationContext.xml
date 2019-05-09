@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置bean -->
+    <bean id="hello" class="com.liuming.spring.xml.HelloWorld">
+        <property name="name" value="liu"></property>
+    </bean>
+
+    <bean id="car1" class="com.liuming.spring.xml.Car">
+        <constructor-arg index="0">
+            <!--            当有特殊字符时 如字符串"<上海^>"-->
+            <value><![CDATA[<上海^>]]></value>
+        </constructor-arg>
+        <constructor-arg value="red" type="java.lang.String"></constructor-arg>
+    </bean>
+    <bean id="car2" class="com.liuming.spring.xml.Car">
+        <constructor-arg value="zz" index="0"></constructor-arg>
+        <constructor-arg value="11" type="double">
+        </constructor-arg>
+    </bean>
+
+    <bean id="p" class="com.liuming.spring.xml.Person">
+        <property name="name" value="jack"></property>
+        <property name="car" ref="car1"></property>
+        <!--内部bean,没有id,不能为外部使用
+        <property name="car">
+            <bean class="com.liuming.spring.xml.Car">
+                <constructor-arg value="鹤壁" index="0"></constructor-arg>
+                <constructor-arg value="100" type="double"></constructor-arg>
+            </bean>
+        </property>-->
+
+    </bean>
+</beans>
