@@ -12,3 +12,25 @@
 3. 否则，查看classpath中是否有Log4j的包，如果发现，则自动使用Log4j作为日志实现类
 4. 否则，使用JDK自身的日志实现类（JDK1.4以后才有日志实现类）
 5. 否则，使用commons-logging自己提供的一个简单的日志实现类SimpleLog
+
+### 使用外部属性文件
+- 目的:使文件路径,数据源配置等信息和bean配置文件分离
+1. 首先导入spring jdbc包,
+org.springframework.jdbc.datasource.DriverManagerDataSource类实现了javax.sql.DataSource接口,只是基本实现,没有提供连接池的机制,
+也可以用c2p0 ComboPooledDataSource,从名字上看,它是有连接池的
+2. add jar mysql-connector-java-8.0.15.jar
+```
+sudo apt-get install mysql-connector-java
+dpkg -L mysql-connector-java
+```
+
+### spring是如何将xml中定义的bean放到BeanFactory中的
+- RootBeanDefinition mbd 包含username,password,url等,其中用户名密码不正确,不是xml中定义的
+
+preInstantiateSingletons for循环创建bean beanNames包含dataSource
+```
+org/springframework/beans/factory/support/AbstractBeanFactory.java 函数 getBean 320行
+
+createBean(beanName, mbd, args);创建一个bean实例,并返回
+
+```
