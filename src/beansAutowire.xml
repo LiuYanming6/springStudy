@@ -34,4 +34,18 @@
         <property name="brand" value="领克01"></property>
         <property name="price" value="16.6"></property>
     </bean>
+
+    <!-- spEL -->
+    <bean id="carSpEL" class="com.liuming.spring.autowire.Car">
+        <property name="brand" value="#{'大奔'}"></property>
+        <property name="price" value="500000"></property>
+        <property name="wheelSize" value="#{T(java.lang.Math).PI * 80}"></property>
+    </bean>
+    <bean id="address2" class="com.liuming.spring.autowire.Address"
+          p:city="郑州" p:street="#{'中州大道'}">
+    </bean>
+    <bean id="p3" class="com.liuming.spring.autowire.Person">
+        <property name="car" value="#{carSpEL}"></property>
+        <property name="address" value="#{carSpEL.price > 500000 ? address : address2 }"></property>
+    </bean>
 </beans>

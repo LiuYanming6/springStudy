@@ -19,6 +19,16 @@ public class Main {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        spEl();
+    }
+    public static void spEl(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("beansAutowire.xml");
+        Car car = (Car) context.getBean("carSpEL");
+        System.out.println(car);
+
+        Person p3 = (Person) context.getBean("p3");
+        System.out.println(p3);
     }
     public static void test() {
         //默认单例一开始就创建对象
@@ -48,7 +58,7 @@ public class Main {
 
         /* debug 发现 用户名=liu 密码="/home/liu/IdeaProjects/springStudy"
         finishBeanFactoryInitialization(beanFactory) --> preInstantiateSingletons
-             System.out.println(source.getConnection());
 */
+             System.out.println(source.getConnection());
     }
 }

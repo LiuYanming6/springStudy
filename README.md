@@ -33,4 +33,13 @@ org/springframework/beans/factory/support/AbstractBeanFactory.java 函数 getBea
 
 createBean(beanName, mbd, args);创建一个bean实例,并返回
 
+doCreateBean
+
+ instantiate  in SimpleInstantiationStrategy.java
+ 获取到默认构造器
+
+  instantiateClass BeanUtils.java
+  使用传入的构造器初始化类
+  
+ populateBean 给username等赋值
 ```
