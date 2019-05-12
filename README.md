@@ -60,3 +60,7 @@ doCreateBean
 - 方式: 基于xml, 基于注解
 - 创建: 通过全类名(反射),静态工厂方法(StaticCarFactory),实例工厂方法(InstanceCarFactory),
 FactoryBean(spring提供)
+
+### 注解方式创建bean
+- 注解Component(Repository,Service,Controller)
+- xml指定context:component-scan
