@@ -43,4 +43,12 @@ public class Person {
                 ", car=" + car.toString() +
                 '}';
     }
+
+    private void finish() {
+        System.out.println("finish Person");
+    }
+
+    private void init() {
+        System.out.println("init Person");
+    }
 }

@@ -42,4 +42,16 @@ doCreateBean
   使用传入的构造器初始化类
   
  populateBean 给username等赋值
+
 ```
+
+### spEL
+
+### IOC容器可以在bean的生命周期注入回调
+1. 通过构造器或工厂方法创建Bean实例并放到BeanFactory
+2. 设置Bean属性
+3. (可省) postProcessBeforeInitialization-> 
+    初始化 init-method -> 
+    postProcessAfterInitialization
+4. 使用
+5. (可省)去初始化 destroy-method

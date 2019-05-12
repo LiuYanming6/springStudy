@@ -29,6 +29,7 @@ public class Main {
 
         Person p3 = (Person) context.getBean("p3");
         System.out.println(p3);
+        ((ClassPathXmlApplicationContext) context).close();
     }
     public static void test() {
         //默认单例一开始就创建对象
