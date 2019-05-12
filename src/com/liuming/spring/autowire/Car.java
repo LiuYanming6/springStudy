@@ -15,6 +15,11 @@ public class Car {
         System.out.println("创建car" + count);
     }
 
+    public Car(String brand, double price) {
+        this.brand = brand;
+        this.price = price;
+    }
+
     public double getPrice() {
         return price;
     }

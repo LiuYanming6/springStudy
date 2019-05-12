@@ -55,3 +55,8 @@ doCreateBean
     postProcessAfterInitialization
 4. 使用
 5. (可省)去初始化 destroy-method
+
+### 配置 bean
+- 方式: 基于xml, 基于注解
+- 创建: 通过全类名(反射),静态工厂方法(StaticCarFactory),实例工厂方法(InstanceCarFactory),
+FactoryBean(spring提供)
