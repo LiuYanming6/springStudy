@@ -64,3 +64,6 @@ FactoryBean(spring提供)
 ### 注解方式创建bean
 - 注解Component(Repository,Service,Controller)
 - xml指定context:component-scan
+
+### 泛型依赖注入
+父类泛型依赖,子类会继承这个关系
