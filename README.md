@@ -76,3 +76,5 @@ FactoryBean(spring提供)
 ![aop](aop.png "aop")
 - aspectjweaver-1.9.3.jar aspectjrt-1.9.3.jar from maven
 
+### 事务管理
+
