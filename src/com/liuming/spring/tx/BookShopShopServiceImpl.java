@@ -2,15 +2,14 @@ package com.liuming.spring.tx;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.
 
 /**
  * @Author: 刘艳明
  * @Date: 19-5-15 下午5:57
  */
-@Service
 import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class BookShopShopServiceImpl implements BookShopService {
 
     @Autowired

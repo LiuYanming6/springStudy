@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 /**
@@ -15,11 +17,19 @@ public class SpringTransactionTest {
     private ApplicationContext context = null;
     private BookShopDao bookShopDao = null;
     private BookShopService bookShopService = null;
+    private Cashier cashier = null;
 
     {
         context = new ClassPathXmlApplicationContext("db.xml");
         bookShopDao = context.getBean(BookShopDao.class);
         bookShopService = context.getBean(BookShopService.class);
+        cashier = context.getBean(Cashier.class);
+    }
+
+    @Test
+    public void testTxPropagation(){
+        //买多本
+        cashier.checkout("jack", Arrays.asList("1001", "1002", "1003"));
     }
 
     @Test
